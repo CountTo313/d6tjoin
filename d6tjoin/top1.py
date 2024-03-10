@@ -90,7 +90,7 @@ class MergeTop1Diff(object):
         df_candidates_exact['__top1right__'] = df_candidates_exact['__top1left__']
         df_candidates_exact['__matchtype__'] = 'exact'
 
-        df_candidates = df_candidates_exact.append(df_candidates_fuzzy, ignore_index=True)
+        df_candidates = pd.concat([df_candidates_exact, df_candidates_fuzzy], ignore_index=True)
 
         return df_candidates
 
